@@ -1,34 +1,28 @@
-# General robot arm configuration.
-# Values are placeholders until the final URDF and CAD dimensions are ready.
+# Robot arm parameters.
+# Fill dimensions only after confirming them from CAD or measurements.
 
 arm:
-  name: "autonomous_robot_arm"
+  name: autonomous_robot_arm
   dof: 3
+  base_joint: base
+  shoulder_joint: shoulder
+  elbow_joint: elbow
 
-  joints:
-    - base
-    - shoulder
-    - elbow
+links:
+  upper_arm_length_m: null
+  forearm_length_m: null
 
-  units:
-    angle: "radians"
-    length: "meters"
+frames:
+  base_frame: base_link
+  end_effector_frame: gripper_link
 
-  base:
-    type: "rotary_dc_motor"
-    rotation_axis: "z"
-    continuous_rotation: true
+units:
+  length: meters
+  angle: radians
 
-  shoulder:
-    type: "linear_actuator"
 
-  elbow:
-    type: "linear_actuator"
 
-  gripper:
-    mode: "manual"
-    autonomous_control_enabled: false
 
-  safety:
-    require_calibration_before_motion: true
-    require_collision_check: true
+
+
+
