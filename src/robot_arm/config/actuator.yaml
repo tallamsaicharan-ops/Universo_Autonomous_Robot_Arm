@@ -1,15 +1,23 @@
-# Fill from CAD and actuator datasheets. Units must be documented consistently.
-shoulder:
-  retracted_pin_to_pin_mm: null
-  usable_stroke_mm: null
-  fixed_mount_x_mm: null
-  fixed_mount_y_mm: null
-  moving_mount_radius_mm: null
-  moving_mount_angle_offset_deg: null
-elbow:
-  retracted_pin_to_pin_mm: null
-  usable_stroke_mm: null
-  fixed_mount_x_mm: null
-  fixed_mount_y_mm: null
-  moving_mount_radius_mm: null
-  moving_mount_angle_offset_deg: null
+# Linear actuator configuration.
+# Fill in the actual values from your actuator datasheets.
+
+actuators:
+  shoulder:
+    type: "linear"
+    enabled: false
+    min_length_m: null
+    max_length_m: null
+    max_velocity_m_s: null
+    max_force_n: null
+
+  elbow:
+    type: "linear"
+    enabled: false
+    min_length_m: null
+    max_length_m: null
+    max_velocity_m_s: null
+    max_force_n: null
+
+control:
+  position_feedback_enabled: true
+  require_calibration: true

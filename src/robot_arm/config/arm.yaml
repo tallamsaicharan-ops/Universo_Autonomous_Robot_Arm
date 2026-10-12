@@ -1,1 +1,34 @@
-# TODO: measured robot parameters; do not guess values.
+# General robot arm configuration.
+# Values are placeholders until the final URDF and CAD dimensions are ready.
+
+arm:
+  name: "autonomous_robot_arm"
+  dof: 3
+
+  joints:
+    - base
+    - shoulder
+    - elbow
+
+  units:
+    angle: "radians"
+    length: "meters"
+
+  base:
+    type: "rotary_dc_motor"
+    rotation_axis: "z"
+    continuous_rotation: true
+
+  shoulder:
+    type: "linear_actuator"
+
+  elbow:
+    type: "linear_actuator"
+
+  gripper:
+    mode: "manual"
+    autonomous_control_enabled: false
+
+  safety:
+    require_calibration_before_motion: true
+    require_collision_check: true

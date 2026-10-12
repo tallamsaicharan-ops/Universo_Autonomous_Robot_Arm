@@ -1,1 +1,28 @@
-# TODO: encoder resolution, units, direction, zero offsets, and validity limits.
+# Encoder configuration for the robot arm.
+# Fill in hardware-specific values after confirming encoder specifications.
+
+encoders:
+  base:
+    enabled: false
+    direction: 1
+    zero_offset: 0.0
+    calibrated: false
+    units: "radians"
+
+  shoulder:
+    enabled: false
+    direction: 1
+    zero_offset: 0.0
+    calibrated: false
+    units: "radians"
+
+  elbow:
+    enabled: false
+    direction: 1
+    zero_offset: 0.0
+    calibrated: false
+    units: "radians"
+
+calibration:
+  require_calibration_before_motion: true
+  reject_uncalibrated_readings: true

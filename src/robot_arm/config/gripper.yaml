@@ -1,1 +1,23 @@
-# Future: gripper controller, limits, sensors, grasp verification and safety settings.
+# Gripper configuration.
+# The gripper is currently operated manually.
+
+gripper:
+  mode: "manual"
+  autonomous_control_enabled: false
+
+  position:
+    open_position: null
+    closed_position: null
+    units: "hardware_defined"
+
+  control:
+    enabled: false
+    require_position_feedback: true
+
+  grasp_verification:
+    enabled: true
+    require_object_detection: true
+    require_position_reached: true
+
+  safety:
+    stop_on_error: true

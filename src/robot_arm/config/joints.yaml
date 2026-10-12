@@ -1,1 +1,28 @@
-# TODO: joint names, axes, limits, velocity and acceleration limits from the final design.
+# Joint configuration for the 3-DOF robot arm.
+# Limits are placeholders until the final URDF and hardware specs are available.
+
+joints:
+  base:
+    type: "revolute"
+    axis: [0, 0, 1]
+    unit: "radians"
+    continuous: true
+    calibrated: false
+
+  shoulder:
+    type: "revolute"
+    axis: [0, 1, 0]
+    unit: "radians"
+    continuous: false
+    calibrated: false
+
+  elbow:
+    type: "revolute"
+    axis: [0, 1, 0]
+    unit: "radians"
+    continuous: false
+    calibrated: false
+
+safety:
+  require_calibration: true
+  enforce_joint_limits: true

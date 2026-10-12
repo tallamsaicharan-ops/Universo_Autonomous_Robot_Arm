@@ -1,1 +1,22 @@
-# TODO: planning group, OMPL planner, planning time, collision settings, and trajectory limits.
+# Motion-planning configuration.
+# Values are provisional and must be validated before hardware use.
+
+planning:
+  algorithm: "joint_space_linear"
+  time_step_s: 0.1
+
+  velocity:
+    max_joint_velocity_rad_s: null
+
+  trajectory:
+    require_start_state: true
+    require_valid_target: true
+
+  collision_checking:
+    enabled: true
+    safety_margin_m: 0.02
+
+  execution:
+    require_calibration: true
+    require_encoder_feedback: true
+    stop_on_error: true

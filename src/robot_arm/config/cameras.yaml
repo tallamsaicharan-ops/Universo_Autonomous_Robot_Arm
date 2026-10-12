@@ -1,1 +1,30 @@
-# TODO: Gemini 2 driver, frame IDs, depth units, and camera-to-base extrinsics.
+# Orbbec Gemini 2 wrist-mounted camera configuration.
+# Confirm supported settings with the camera driver.
+
+camera:
+  name: "wrist_camera"
+  model: "Orbbec Gemini 2"
+  connection: "USB"
+  enabled: true
+
+  frames:
+    camera_frame: "camera_link"
+    optical_frame: "camera_color_optical_frame"
+    robot_base_frame: "base_link"
+    end_effector_frame: "gripper_link"
+
+  streams:
+    color:
+      enabled: true
+      resolution: null
+      fps: null
+
+    depth:
+      enabled: true
+      resolution: null
+      fps: null
+
+  perception:
+    publish_color_image: true
+    publish_depth_image: true
+    publish_point_cloud: false

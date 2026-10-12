@@ -1,1 +1,20 @@
-# TODO: CAN interface name/bitrate, node IDs, message IDs, and protocol-specific settings.
+# CAN communication configuration.
+# Confirm these settings with the STM32 firmware team.
+
+can:
+  interface: "can0"
+  enabled: false
+  bitrate: null
+
+communication:
+  jetson_to_stm32: true
+  stm32_to_jetson: true
+
+protocol:
+  command_format: "to_be_defined"
+  feedback_format: "to_be_defined"
+
+safety:
+  require_feedback: true
+  timeout_ms: null
+  retry_limit: 3
