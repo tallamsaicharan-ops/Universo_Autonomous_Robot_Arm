@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!-- Placeholder only: replace with the measured robot model before MoveIt or hardware use. -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
+  <!-- TODO: define links, joint origins/axes/limits, collision geometry, and transmissions/interfaces. -->
+</robot>
