@@ -1,10 +1,9 @@
-"""
-Calibration module for the autonomous robot arm.
+"""Calibration utilities for the robot arm."""
 
-Provides:
-- Encoder calibration
-- Arm calibration
-- Camera calibration is handled separately.
-"""
+from .encoder_calibration import EncoderCalibration
+from .arm_calibration import ArmCalibration
 
-__all__ = []
+__all__ = [
+    "EncoderCalibration",
+    "ArmCalibration",
+]
