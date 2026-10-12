@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot_arm</name>
+  <version>0.1.0</version>
+  <description>Starter structure for a 3-DOF autonomous robot arm with linear actuators and future autonomous gripper support.</description>
+  <maintainer email="TODO@example.com">TODO Maintainer</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>
