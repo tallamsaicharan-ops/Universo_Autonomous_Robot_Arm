@@ -1,17 +1,24 @@
-from typing import Dict, Optional
+"""Generate validated joint-space trajectories."""
+
 import math
+from typing import Dict, Optional
 
 from .trajectory import Trajectory
 
 
 class MotionPlanner:
-    """Generates simple joint-space trajectories for the robot arm."""
+    """Generate synchronized linear joint-space trajectories."""
 
     def __init__(self, max_velocity: float = 0.5):
-        if max_velocity <= 0:
-            raise ValueError("Maximum velocity must be positive.")
+        if (
+            not isinstance(max_velocity, (int, float))
+            or isinstance(max_velocity, bool)
+            or not math.isfinite(max_velocity)
+            or max_velocity <= 0
+        ):
+            raise ValueError("Maximum velocity must be finite and positive.")
 
-        self.max_velocity = max_velocity
+        self.max_velocity = float(max_velocity)
 
     def plan_trajectory(
         self,
@@ -19,17 +26,26 @@ class MotionPlanner:
         target_positions: Dict[str, float],
         time_step: float = 0.1,
     ) -> Optional[Trajectory]:
+        """Plan a linear trajectory between two joint configurations.
+
+        Joint positions are assumed to be radians.
+        Maximum velocity is in radians per second.
+
+        Returns None when joint names do not match or are missing.
         """
-        Generate a synchronized linear joint-space trajectory.
 
-        Joint positions are assumed to be in radians.
-        max_velocity is in radians per second.
+        if (
+            not isinstance(time_step, (int, float))
+            or isinstance(time_step, bool)
+            or not math.isfinite(time_step)
+            or time_step <= 0
+        ):
+            raise ValueError("Time step must be finite and positive.")
 
-        Returns None if the joint sets do not match.
-        """
-
-        if time_step <= 0:
-            raise ValueError("Time step must be positive.")
+        if not isinstance(start_positions, dict) or not isinstance(
+            target_positions, dict
+        ):
+            raise TypeError("Joint positions must be dictionaries.")
 
         if (
             not start_positions
@@ -39,8 +55,30 @@ class MotionPlanner:
 
         joint_names = list(start_positions.keys())
 
+        for name in joint_names:
+            if not isinstance(name, str) or not name:
+                raise ValueError("Joint names must be non-empty strings.")
+
+            for label, positions in (
+                ("start", start_positions),
+                ("target", target_positions),
+            ):
+                value = positions[name]
+
+                if (
+                    not isinstance(value, (int, float))
+                    or isinstance(value, bool)
+                    or not math.isfinite(value)
+                ):
+                    raise ValueError(
+                        f"{label} position for joint '{name}' "
+                        "must be finite."
+                    )
+
         max_distance = max(
-            abs(target_positions[name] - start_positions[name])
+            abs(
+                target_positions[name] - start_positions[name]
+            )
             for name in joint_names
         )
 
@@ -48,18 +86,27 @@ class MotionPlanner:
         trajectory = Trajectory(joint_names=joint_names)
 
         if duration == 0:
-            trajectory.add_point(start_positions.copy(), 0.0)
+            trajectory.add_point(
+                positions={
+                    name: float(start_positions[name])
+                    for name in joint_names
+                },
+                time_from_start=0.0,
+            )
             return trajectory
 
         steps = max(1, math.ceil(duration / time_step))
 
         for step in range(steps + 1):
             ratio = step / steps
+
             positions = {
                 name: (
                     start_positions[name]
-                    + ratio * (
-                        target_positions[name] - start_positions[name]
+                    + ratio
+                    * (
+                        target_positions[name]
+                        - start_positions[name]
                     )
                 )
                 for name in joint_names

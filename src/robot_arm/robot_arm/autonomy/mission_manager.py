@@ -36,13 +36,15 @@ class MissionManager:
                 return True
 
             self.last_error = f"Mission '{name}' failed."
-            self.state_machine.transition(AutonomyState.RECOVERING)
-            return False
 
         except Exception as exc:
-            self.last_error = f"Mission '{name}' raised an exception: {exc}"
-            self.state_machine.transition(AutonomyState.RECOVERING)
-            return False
+            self.last_error = (
+                f"Mission '{name}' raised an exception: {exc}"
+            )
+
+        self.state_machine.transition(AutonomyState.RECOVERING)
+        self.current_mission = None
+        return False
 
     def finish_recovery(self, recovered: bool) -> bool:
         """Update autonomy state after external recovery handling."""

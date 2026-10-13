@@ -1,23 +1,19 @@
-# Linear actuator configuration.
-# Fill in the actual values from your actuator datasheets.
-
 actuators:
   shoulder:
-    type: "linear"
+    type: linear
+    joint: shoulder
     enabled: false
-    min_length_m: null
-    max_length_m: null
-    max_velocity_m_s: null
-    max_force_n: null
+    min_stroke_m: null
+    max_stroke_m: null
+    limits_verified: false
 
   elbow:
-    type: "linear"
+    type: linear
+    joint: elbow
     enabled: false
-    min_length_m: null
-    max_length_m: null
-    max_velocity_m_s: null
-    max_force_n: null
+    min_stroke_m: null
+    max_stroke_m: null
+    limits_verified: false
 
-control:
-  position_feedback_enabled: true
-  require_calibration: true
+units:
+  length: meters

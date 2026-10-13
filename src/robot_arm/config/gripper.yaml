@@ -1,23 +1,16 @@
-# Gripper configuration.
-# The gripper is currently operated manually.
-
 gripper:
-  mode: "manual"
-  autonomous_control_enabled: false
-
-  position:
-    open_position: null
-    closed_position: null
-    units: "hardware_defined"
+  mode: manual
+  enabled: false
 
   control:
-    enabled: false
-    require_position_feedback: true
+    autonomous_grasping: false
+    manual_control: true
 
-  grasp_verification:
-    enabled: true
-    require_object_detection: true
-    require_position_reached: true
+  verification:
+    enabled: false
+    require_object_detection: false
+    require_position_confirmation: false
 
   safety:
-    stop_on_error: true
+    require_arm_stopped_before_manual_grasp: true
+

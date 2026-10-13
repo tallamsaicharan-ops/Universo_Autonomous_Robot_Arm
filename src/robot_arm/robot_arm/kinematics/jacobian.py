@@ -1,3 +1,6 @@
+"""Calculate the position Jacobian for a simplified 3-DOF arm."""
+
+import math
 import numpy as np
 
 
@@ -8,22 +11,15 @@ def calculate_jacobian(
     upper_arm_length: float,
     forearm_length: float,
 ) -> np.ndarray:
+    """Calculate the 3x3 translational Jacobian.
+
+    Maps joint velocities [q1_dot, q2_dot, q3_dot] to
+    end-effector velocity [x_dot, y_dot, z_dot].
+
+    Angles are in radians; lengths are in metres.
     """
-    Calculate the positional Jacobian for a 3-DOF arm.
-
-    Angles are in radians.
-    Lengths are in metres.
-
-    Returns:
-        A 3x3 Jacobian mapping joint velocities to
-        end-effector linear velocity.
-
-    Assumptions:
-        - Base rotates around the vertical Z-axis.
-        - Shoulder and elbow rotate around local Y-axes.
-        - Shoulder is located at the origin.
-        - Geometry matches the preliminary FK model.
-    """
+    if upper_arm_length <= 0 or forearm_length <= 0:
+        raise ValueError("Link lengths must be positive.")
 
     q1 = base_angle
     q2 = shoulder_angle
@@ -32,50 +28,38 @@ def calculate_jacobian(
     l1 = upper_arm_length
     l2 = forearm_length
 
-    # Radial distance from the base axis.
-    radial = (
-        l1 * np.cos(q2)
-        + l2 * np.cos(q2 + q3)
-    )
+    radial = l1 * math.cos(q2) + l2 * math.cos(q2 + q3)
 
-    # Height of the end effector.
-    height = (
-        l1 * np.sin(q2)
-        + l2 * np.sin(q2 + q3)
-    )
-
-    # Derivatives with respect to the shoulder angle.
     dr_dq2 = (
-        -l1 * np.sin(q2)
-        -l2 * np.sin(q2 + q3)
+        -l1 * math.sin(q2)
+        -l2 * math.sin(q2 + q3)
     )
 
-    dz_dq2 = (
-        l1 * np.cos(q2)
-        + l2 * np.cos(q2 + q3)
+    dr_dq3 = -l2 * math.sin(q2 + q3)
+
+    # The FK model uses rotation_matrix_y(), so positive shoulder
+    # and elbow angles produce negative Z for links along local +X.
+    dz_dq2 = -(
+        l1 * math.cos(q2)
+        +l2 * math.cos(q2 + q3)
     )
 
-    # Derivatives with respect to the elbow angle.
-    dr_dq3 = -l2 * np.sin(q2 + q3)
-    dz_dq3 = l2 * np.cos(q2 + q3)
+    dz_dq3 = -l2 * math.cos(q2 + q3)
 
-    # Construct the positional Jacobian.
-    jacobian = np.array([
+    return np.array([
         [
-            -radial * np.sin(q1),
-            dr_dq2 * np.cos(q1),
-            dr_dq3 * np.cos(q1),
+            -radial * math.sin(q1),
+            dr_dq2 * math.cos(q1),
+            dr_dq3 * math.cos(q1),
         ],
         [
-            radial * np.cos(q1),
-            dr_dq2 * np.sin(q1),
-            dr_dq3 * np.sin(q1),
+            radial * math.cos(q1),
+            dr_dq2 * math.sin(q1),
+            dr_dq3 * math.sin(q1),
         ],
         [
             0.0,
             dz_dq2,
             dz_dq3,
         ],
-    ])
-
-    return jacobian
+    ], dtype=float)

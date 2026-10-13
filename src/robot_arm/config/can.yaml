@@ -1,20 +1,13 @@
-# CAN communication configuration.
-# Confirm these settings with the STM32 firmware team.
-
 can:
-  interface: "can0"
+  interface: can0
   enabled: false
   bitrate: null
 
-communication:
-  jetson_to_stm32: true
-  stm32_to_jetson: true
+  protocol:
+    status: to_be_defined
+    packet_format_verified: false
+    command_ids_verified: false
 
-protocol:
-  command_format: "to_be_defined"
-  feedback_format: "to_be_defined"
-
-safety:
-  require_feedback: true
-  timeout_ms: null
-  retry_limit: 3
+  safety:
+    require_status_feedback: true
+    require_fault_check: true

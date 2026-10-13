@@ -1,9 +1,11 @@
+"""Forward kinematics for a 3-DOF robot arm."""
+
 import numpy as np
 
 from .transforms import (
-    translation_matrix,
     rotation_matrix_z,
     rotation_matrix_y,
+    translation_matrix,
 )
 
 
@@ -15,42 +17,44 @@ def forward_kinematics(
     forearm_length: float,
 ) -> np.ndarray:
     """
-    Calculate the end-effector position and orientation.
+    Calculate the end-effector homogeneous transformation matrix.
 
     Angles are in radians.
     Lengths are in metres.
 
+    Assumptions:
+        - Base rotates about the Z-axis.
+        - Shoulder and elbow rotate about their local Y-axes.
+        - Both links extend along their local X-axes.
+        - The base origin is at (0, 0, 0).
+
     Returns:
         A 4x4 homogeneous transformation matrix.
     """
+    if upper_arm_length <= 0 or forearm_length <= 0:
+        raise ValueError("Link lengths must be positive.")
 
-    # Rotate the arm around the vertical base axis.
-    base_rotation = rotation_matrix_z(base_angle)
+    base_transform = rotation_matrix_z(base_angle)
 
-    # Rotate the shoulder and move along the upper arm.
     shoulder_transform = (
         rotation_matrix_y(shoulder_angle)
         @ translation_matrix(upper_arm_length, 0.0, 0.0)
     )
 
-    # Rotate the elbow and move along the forearm.
     elbow_transform = (
         rotation_matrix_y(elbow_angle)
         @ translation_matrix(forearm_length, 0.0, 0.0)
     )
 
-    # Combine the transformations.
-    end_effector_transform = (
-        base_rotation
-        @ shoulder_transform
-        @ elbow_transform
-    )
-
-    return end_effector_transform
+    return base_transform @ shoulder_transform @ elbow_transform
 
 
-def get_end_effector_position(
-    transform: np.ndarray,
-) -> np.ndarray:
-    """Extract the XYZ position from a 4x4 transformation matrix."""
+def get_end_effector_position(transform: np.ndarray) -> np.ndarray:
+    """Extract the XYZ position from a homogeneous transformation."""
+    transform = np.asarray(transform, dtype=float)
+
+    if transform.shape != (4, 4):
+        raise ValueError("Transform must be a 4x4 matrix.")
+
     return transform[:3, 3].copy()
+

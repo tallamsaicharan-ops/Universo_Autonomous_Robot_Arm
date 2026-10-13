@@ -9,6 +9,8 @@ from .transforms import (
     rotation_matrix_y,
     rotation_matrix_z,
     transform_point,
+    compose_transforms,
+    inverse_transform,
 )
 from .actuator_conversion import (
     ActuatorGeometry,
@@ -26,6 +28,8 @@ __all__ = [
     "rotation_matrix_y",
     "rotation_matrix_z",
     "transform_point",
+    "compose_transforms",
+    "inverse_transform",
     "ActuatorGeometry",
     "calculate_actuator_length",
     "calculate_actuator_lengths",

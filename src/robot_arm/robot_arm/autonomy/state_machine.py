@@ -14,11 +14,14 @@ class AutonomyState(Enum):
 
 
 class StateMachine:
+    """Manage high-level autonomy states and permitted transitions."""
+
     def __init__(self):
         self.state = AutonomyState.IDLE
 
     def transition(self, new_state: AutonomyState) -> bool:
         """Transition only when the requested state change is allowed."""
+
         allowed_transitions = {
             AutonomyState.IDLE: {
                 AutonomyState.INITIALIZING,
@@ -61,6 +64,7 @@ class StateMachine:
 
     def reset(self) -> bool:
         """Reset software state after an error; not a hardware reset."""
+
         if self.state != AutonomyState.ERROR:
             return False
 

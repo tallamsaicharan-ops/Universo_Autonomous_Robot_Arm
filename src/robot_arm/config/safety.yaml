@@ -1,23 +1,16 @@
-# Safety configuration for the autonomous robot arm.
-# Thresholds must be validated against the actual hardware.
-
 safety:
   enabled: true
 
   motion:
     require_calibration: true
-    require_valid_joint_targets: true
+    require_verified_joint_limits: true
     require_collision_check: true
-
-  feedback:
-    require_encoder_feedback: true
-    stop_on_feedback_loss: true
-
-  faults:
-    stop_on_controller_error: true
-    stop_on_gripper_error: true
-    allow_motion_after_error: false
 
   emergency_stop:
     enabled: true
     require_manual_reset: true
+
+  faults:
+    stop_on_communication_loss: true
+    stop_on_limit_violation: true
+

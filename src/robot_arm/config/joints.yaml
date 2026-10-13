@@ -1,28 +1,25 @@
-# Joint configuration for the 3-DOF robot arm.
-# Limits are placeholders until the final URDF and hardware specs are available.
-
 joints:
   base:
-    type: "revolute"
-    axis: [0, 0, 1]
-    unit: "radians"
-    continuous: true
-    calibrated: false
+    type: revolute
+    unit: radians
+    limits_verified: false
+    min_position_rad: null
+    max_position_rad: null
 
   shoulder:
-    type: "revolute"
-    axis: [0, 1, 0]
-    unit: "radians"
-    continuous: false
-    calibrated: false
+    type: revolute
+    unit: degrees
+    limits_verified: false
+    min_position_deg: 90.0
+    max_position_deg: 135.0
+    min_position_rad: 1.570796326795
+    max_position_rad: 2.356194490192
 
   elbow:
-    type: "revolute"
-    axis: [0, 1, 0]
-    unit: "radians"
-    continuous: false
-    calibrated: false
-
-safety:
-  require_calibration: true
-  enforce_joint_limits: true
+    type: revolute
+    unit: degrees
+    limits_verified: false
+    min_position_deg: 55.0
+    max_position_deg: 110.0
+    min_position_rad: 0.959931088597
+    max_position_rad: 1.919862177194
