@@ -11,8 +11,8 @@ arm:
 # Link dimensions in metres
 # Fill these after identifying the corresponding CAD components.
 links:
-  upper_arm_length_m: null
-  forearm_length_m: null
+  upper_arm_length_m: 0.552
+  forearm_length_m: 0.440
 
 # Coordinate frames
 frames:
