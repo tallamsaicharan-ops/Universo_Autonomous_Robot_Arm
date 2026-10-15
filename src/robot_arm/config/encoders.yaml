@@ -1,5 +1,11 @@
 encoders:
   base:
+    encoder_type: "hall_effect"
+    model: "OE-28"
+    channels: 2
+    pulses_per_revolution:
+    position_feedback_available: false
+    zero_offset_counts: 0
     enabled: false
     joint: base
     direction: 1
@@ -8,6 +14,12 @@ encoders:
     units: radians
 
   shoulder:
+    encoder_type: "hall_effect"
+    model: "OE-28"
+    channels: 2
+    pulses_per_revolution:
+    position_feedback_available: false
+    zero_offset_counts: 0
     enabled: false
     joint: shoulder
     direction: 1
@@ -16,6 +28,12 @@ encoders:
     units: radians
 
   elbow:
+    encoder_type: "hall_effect"
+    model: "OE-28"
+    channels: 2
+    pulses_per_revolution:
+    position_feedback_available: false
+    zero_offset_counts: 0
     enabled: false
     joint: elbow
     direction: 1
