@@ -1,5 +1,8 @@
+"""Store a sequence of validated joint-position waypoints."""
+
 from dataclasses import dataclass, field
-from typing import List, Dict
+import math
+from typing import Dict, List
 
 
 @dataclass
@@ -15,7 +18,14 @@ class Trajectory:
         positions: Dict[str, float],
         time_from_start: float,
     ) -> None:
-        """Add a joint-position waypoint to the trajectory."""
+        """Add a validated joint-position waypoint."""
+
+        if (
+            not isinstance(time_from_start, (int, float))
+            or isinstance(time_from_start, bool)
+            or not math.isfinite(time_from_start)
+        ):
+            raise ValueError("Waypoint time must be finite.")
 
         if time_from_start < 0:
             raise ValueError("Time cannot be negative.")
@@ -25,14 +35,43 @@ class Trajectory:
                 "Each waypoint time must be greater than the previous time."
             )
 
+        if not isinstance(positions, dict):
+            raise TypeError("Joint positions must be provided as a dictionary.")
+
+        if not isinstance(self.joint_names, list) or not self.joint_names:
+            raise ValueError("Joint names must be a non-empty list.")
+
+        if any(
+            not isinstance(name, str) or not name
+            for name in self.joint_names
+        ):
+            raise ValueError("Joint names must be non-empty strings.")
+
+        if len(set(self.joint_names)) != len(self.joint_names):
+            raise ValueError("Joint names must be unique.")
+
         missing = set(self.joint_names) - set(positions)
         if missing:
             raise ValueError(f"Missing joint positions: {sorted(missing)}")
 
-        self.points.append({
-            name: positions[name] for name in self.joint_names
-        })
-        self.times.append(time_from_start)
+        validated_positions = {}
+
+        for name in self.joint_names:
+            value = positions[name]
+
+            if (
+                not isinstance(value, (int, float))
+                or isinstance(value, bool)
+                or not math.isfinite(value)
+            ):
+                raise ValueError(
+                    f"Position for joint '{name}' must be finite."
+                )
+
+            validated_positions[name] = float(value)
+
+        self.points.append(validated_positions)
+        self.times.append(float(time_from_start))
 
     def clear(self) -> None:
         """Remove all trajectory waypoints."""
@@ -46,4 +85,5 @@ class Trajectory:
 
     @property
     def is_empty(self) -> bool:
+        """Return whether the trajectory contains no waypoints."""
         return len(self.points) == 0

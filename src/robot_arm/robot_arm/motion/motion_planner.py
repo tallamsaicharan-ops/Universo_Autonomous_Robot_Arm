@@ -104,6 +104,7 @@ class MotionPlanner:
                 name: (
                     start_positions[name]
                     + ratio
+
                     * (
                         target_positions[name]
                         - start_positions[name]

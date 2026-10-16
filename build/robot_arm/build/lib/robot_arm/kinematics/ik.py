@@ -1,77 +1,70 @@
+"""Inverse kinematics for a 3-DOF robot arm."""
+
 import math
-from typing import Optional, Tuple
 
 
 def inverse_kinematics(
-    x: float,
-    y: float,
-    z: float,
-    upper_arm_length: float,
-    forearm_length: float,
-) -> Optional[Tuple[float, float, float]]:
+    x,
+    y,
+    z,
+    upper_arm_length,
+    forearm_length,
+):
     """
-    Calculate base, shoulder, and elbow angles for a target position.
+    Calculate joint angles for a 3-DOF arm.
 
-    Args:
-        x, y, z: Target position in metres, relative to the arm base.
-        upper_arm_length: Upper arm length in metres.
-        forearm_length: Forearm length in metres.
+    Coordinate conventions must match fk.py:
+      - Base rotates about Z.
+      - Shoulder and elbow rotate about local Y.
+      - Links extend along local +X.
+      - Positive shoulder/elbow angles move the arm toward -Z.
 
     Returns:
-        (base_angle, shoulder_angle, elbow_angle) in radians,
-        or None if the target is unreachable.
-
-    Assumptions:
-        - Base rotates around the vertical Z-axis.
-        - Shoulder and elbow rotate in a vertical plane.
-        - Shoulder angle is measured from the horizontal.
-        - The arm geometry matches the preliminary FK model.
+        (base_angle, shoulder_angle, elbow_angle), or None
+        if the target is unreachable.
     """
-
     if upper_arm_length <= 0 or forearm_length <= 0:
-        raise ValueError("Arm lengths must be positive.")
+        raise ValueError("Arm link lengths must be positive.")
 
-    # Calculate the base rotation.
+    values = (x, y, z, upper_arm_length, forearm_length)
+    if not all(math.isfinite(v) for v in values):
+        raise ValueError("Coordinates and link lengths must be finite.")
+
+    l1 = upper_arm_length
+    l2 = forearm_length
+
+    # Base rotation and distance in the horizontal plane.
     base_angle = math.atan2(y, x)
+    radial = math.hypot(x, y)
 
-    # Reduce the 3D target to the arm's vertical plane.
-    radial_distance = math.hypot(x, y)
-    vertical_distance = z
+    # FK's positive joint angles produce negative Z, so reflect
+    # the requested vertical coordinate for the standard 2-link solution.
+    vertical = -z
 
-    # Distance from the shoulder to the target.
-    distance_squared = (
-        radial_distance**2 + vertical_distance**2
-    )
+    distance_squared = radial**2 + vertical**2
     distance = math.sqrt(distance_squared)
 
-    # Check whether the target is reachable.
-    if distance > upper_arm_length + forearm_length:
+    tolerance = 1e-9
+    if distance > l1 + l2 + tolerance:
+        return None
+    if distance < abs(l1 - l2) - tolerance:
         return None
 
-    if distance < abs(upper_arm_length - forearm_length):
-        return None
-
-    # Calculate the elbow angle using the cosine rule.
+    # Law of cosines.
     cos_elbow = (
-        distance_squared
-        - upper_arm_length**2
-        - forearm_length**2
-    ) / (2 * upper_arm_length * forearm_length)
-
+        distance_squared - l1**2 - l2**2
+    ) / (2.0 * l1 * l2)
     cos_elbow = max(-1.0, min(1.0, cos_elbow))
+
+    # One of the two possible elbow configurations.
     elbow_angle = math.acos(cos_elbow)
 
-    # Calculate the shoulder angle.
-    target_angle = math.atan2(
-        vertical_distance, radial_distance
+    shoulder_angle = (
+        math.atan2(vertical, radial)
+        - math.atan2(
+            l2 * math.sin(elbow_angle),
+            l1 + l2 * math.cos(elbow_angle),
+        )
     )
-
-    correction_angle = math.atan2(
-        forearm_length * math.sin(elbow_angle),
-        upper_arm_length
-        + forearm_length * math.cos(elbow_angle),
-    )
-
-    shoulder_angle = target_angle - correction_angle
 
     return base_angle, shoulder_angle, elbow_angle

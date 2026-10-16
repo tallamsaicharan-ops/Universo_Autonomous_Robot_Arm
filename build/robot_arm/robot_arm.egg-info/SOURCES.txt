@@ -1,3 +1,4 @@
+README.md
 package.xml
 setup.cfg
 setup.py
@@ -8,15 +9,9 @@ setup.py
 ../../build/robot_arm/robot_arm.egg-info/requires.txt
 ../../build/robot_arm/robot_arm.egg-info/top_level.txt
 ../../build/robot_arm/robot_arm.egg-info/zip-safe
+config/joints.yaml
 resource/robot_arm
 robot_arm/__init__.py
-robot_arm.egg-info/PKG-INFO
-robot_arm.egg-info/SOURCES.txt
-robot_arm.egg-info/dependency_links.txt
-robot_arm.egg-info/entry_points.txt
-robot_arm.egg-info/requires.txt
-robot_arm.egg-info/top_level.txt
-robot_arm.egg-info/zip-safe
 robot_arm/autonomy/__init__.py
 robot_arm/autonomy/mission_manager.py
 robot_arm/autonomy/recovery_manager.py
@@ -66,6 +61,7 @@ robot_arm/perception/object_pose.py
 robot_arm/safety/__init__.py
 robot_arm/safety/emergency_stop.py
 robot_arm/safety/fault_handler.py
+robot_arm/safety/joint_limits_loader.py
 robot_arm/safety/limit_manager.py
 robot_arm/safety/safety_manager.py
 robot_arm/state/__init__.py
@@ -74,3 +70,6 @@ robot_arm/state/gripper_state.py
 robot_arm/state/joint_state.py
 robot_arm/state/state_manager.py
 robot_arm/state/system_state.py
+test/test_actuator_conversion.py
+test/test_coordinate_transform.py
+test/test_joint_limits.py

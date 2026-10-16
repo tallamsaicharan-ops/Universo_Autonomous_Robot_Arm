@@ -1,0 +1,176 @@
+[0.482s] Invoking command in '/home/saicharan/autonomous_arm_ws/build/robot_arm': PYTHONPATH=/home/saicharan/autonomous_arm_ws/build/robot_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/saicharan/autonomous_arm_ws/build/robot_arm/build
+[0.642s] running develop
+[0.735s] Removing /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot-arm.egg-link (link to .)
+[0.753s] Invoked command in '/home/saicharan/autonomous_arm_ws/build/robot_arm' returned '0': PYTHONPATH=/home/saicharan/autonomous_arm_ws/build/robot_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/saicharan/autonomous_arm_ws/build/robot_arm/build
+[0.754s] Invoking command in '/home/saicharan/autonomous_arm_ws/src/robot_arm': PYTHONPATH=/home/saicharan/autonomous_arm_ws/build/robot_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_arm build --build-base /home/saicharan/autonomous_arm_ws/build/robot_arm/build install --record /home/saicharan/autonomous_arm_ws/build/robot_arm/install.log --install-scripts $base/lib/robot_arm --single-version-externally-managed install_data --force
+[0.897s] running egg_info
+[0.897s] writing ../../build/robot_arm/robot_arm.egg-info/PKG-INFO
+[0.897s] writing dependency_links to ../../build/robot_arm/robot_arm.egg-info/dependency_links.txt
+[0.897s] writing entry points to ../../build/robot_arm/robot_arm.egg-info/entry_points.txt
+[0.897s] writing requirements to ../../build/robot_arm/robot_arm.egg-info/requires.txt
+[0.897s] writing top-level names to ../../build/robot_arm/robot_arm.egg-info/top_level.txt
+[0.899s] reading manifest file '../../build/robot_arm/robot_arm.egg-info/SOURCES.txt'
+[0.903s] writing manifest file '../../build/robot_arm/robot_arm.egg-info/SOURCES.txt'
+[0.903s] running build
+[0.903s] running build_py
+[0.904s] copying robot_arm/state/__init__.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state
+[0.905s] copying robot_arm/state/system_state.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state
+[0.905s] copying robot_arm/motion/collision_checker.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion
+[0.905s] copying robot_arm/motion/trajectory.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion
+[0.905s] copying robot_arm/motion/motion_planner.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion
+[0.906s] copying robot_arm/kinematics/transforms.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics
+[0.906s] copying robot_arm/kinematics/__init__.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics
+[0.906s] copying robot_arm/kinematics/jacobian.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics
+[0.907s] copying robot_arm/kinematics/fk.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics
+[0.907s] copying robot_arm/kinematics/actuator_conversion.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics
+[0.907s] copying robot_arm/kinematics/ik.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics
+[0.907s] copying robot_arm/calibration/__init__.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/calibration
+[0.908s] copying robot_arm/safety/joint_limits_loader.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety
+[0.908s] copying robot_arm/safety/limit_manager.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety
+[0.909s] copying robot_arm/gripper/grasp_planner.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper
+[0.909s] copying robot_arm/autonomy/mission_manager.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy
+[0.909s] copying robot_arm/autonomy/__init__.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy
+[0.910s] copying robot_arm/autonomy/state_machine.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy
+[0.910s] copying robot_arm/autonomy/recovery_manager.py -> /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy
+[0.911s] running install
+[0.911s] running install_lib
+[0.912s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm
+[0.912s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/logging_tools
+[0.912s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/logging_tools/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/logging_tools
+[0.912s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/logging_tools/event_logger.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/logging_tools
+[0.912s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm
+[0.912s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.912s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state/state_manager.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.912s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state/system_state.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state/arm_state.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state/gripper_state.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/state/joint_state.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state
+[0.913s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion/collision_checker.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion/trajectory.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion/trajectory_executor.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/motion/motion_planner.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion
+[0.913s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/perception/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/perception/object_detection.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/perception/coordinate_transform.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/perception/object_pose.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/perception/camera.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.913s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/perception/depth.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception
+[0.914s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics/transforms.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics/jacobian.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics/fk.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics/actuator_conversion.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/kinematics/ik.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics
+[0.914s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/calibration/arm_calibration.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/calibration/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/calibration/camera_calibration.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/calibration/encoder_calibration.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration
+[0.914s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety/joint_limits_loader.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety/safety_manager.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety/emergency_stop.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.914s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety/limit_manager.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/safety/fault_handler.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety
+[0.915s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper/grasp_verifier.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper/gripper_perception.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper/grasp_planner.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper/gripper_state.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/gripper/gripper_controller.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper
+[0.915s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.915s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/missions/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.916s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/missions/press_button.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.916s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/missions/pick_object.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.916s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/missions/position_for_manual_grasp.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.916s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/missions/place_object.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.917s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/missions/soil_collection.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions
+[0.917s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy
+[0.917s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy/mission_manager.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy
+[0.917s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy
+[0.917s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy/state_machine.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy
+[0.917s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/autonomy/recovery_manager.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy
+[0.918s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/__init__.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/hardware_status.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/packet_parser.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/stm32_driver.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/arm_hardware_interface.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/packet_builder.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] copying /home/saicharan/autonomous_arm_ws/build/robot_arm/build/lib/robot_arm/hardware/can_interface.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware
+[0.918s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/logging_tools/__init__.py to __init__.cpython-310.pyc
+[0.918s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/logging_tools/event_logger.py to event_logger.cpython-310.pyc
+[0.918s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/__init__.py to __init__.cpython-310.pyc
+[0.919s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state/state_manager.py to state_manager.cpython-310.pyc
+[0.919s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state/__init__.py to __init__.cpython-310.pyc
+[0.919s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state/system_state.py to system_state.cpython-310.pyc
+[0.919s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state/arm_state.py to arm_state.cpython-310.pyc
+[0.920s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state/gripper_state.py to gripper_state.cpython-310.pyc
+[0.920s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/state/joint_state.py to joint_state.cpython-310.pyc
+[0.920s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion/collision_checker.py to collision_checker.cpython-310.pyc
+[0.920s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion/trajectory.py to trajectory.cpython-310.pyc
+[0.921s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion/__init__.py to __init__.cpython-310.pyc
+[0.921s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion/trajectory_executor.py to trajectory_executor.cpython-310.pyc
+[0.921s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/motion/motion_planner.py to motion_planner.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception/__init__.py to __init__.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception/object_detection.py to object_detection.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception/coordinate_transform.py to coordinate_transform.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception/object_pose.py to object_pose.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception/camera.py to camera.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/perception/depth.py to depth.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics/transforms.py to transforms.cpython-310.pyc
+[0.922s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics/__init__.py to __init__.cpython-310.pyc
+[0.923s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics/jacobian.py to jacobian.cpython-310.pyc
+[0.923s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics/fk.py to fk.cpython-310.pyc
+[0.923s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics/actuator_conversion.py to actuator_conversion.cpython-310.pyc
+[0.923s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/kinematics/ik.py to ik.cpython-310.pyc
+[0.924s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration/arm_calibration.py to arm_calibration.cpython-310.pyc
+[0.924s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration/__init__.py to __init__.cpython-310.pyc
+[0.924s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration/camera_calibration.py to camera_calibration.cpython-310.pyc
+[0.924s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/calibration/encoder_calibration.py to encoder_calibration.cpython-310.pyc
+[0.924s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety/__init__.py to __init__.cpython-310.pyc
+[0.924s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety/joint_limits_loader.py to joint_limits_loader.cpython-310.pyc
+[0.925s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety/safety_manager.py to safety_manager.cpython-310.pyc
+[0.925s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety/emergency_stop.py to emergency_stop.cpython-310.pyc
+[0.925s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety/limit_manager.py to limit_manager.cpython-310.pyc
+[0.925s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/safety/fault_handler.py to fault_handler.cpython-310.pyc
+[0.925s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper/__init__.py to __init__.cpython-310.pyc
+[0.925s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper/grasp_verifier.py to grasp_verifier.cpython-310.pyc
+[0.926s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper/gripper_perception.py to gripper_perception.cpython-310.pyc
+[0.926s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper/grasp_planner.py to grasp_planner.cpython-310.pyc
+[0.926s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper/gripper_state.py to gripper_state.cpython-310.pyc
+[0.926s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/gripper/gripper_controller.py to gripper_controller.cpython-310.pyc
+[0.926s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions/__init__.py to __init__.cpython-310.pyc
+[0.926s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions/press_button.py to press_button.cpython-310.pyc
+[0.927s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions/pick_object.py to pick_object.cpython-310.pyc
+[0.927s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions/position_for_manual_grasp.py to position_for_manual_grasp.cpython-310.pyc
+[0.927s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions/place_object.py to place_object.cpython-310.pyc
+[0.927s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/missions/soil_collection.py to soil_collection.cpython-310.pyc
+[0.928s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy/mission_manager.py to mission_manager.cpython-310.pyc
+[0.928s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy/__init__.py to __init__.cpython-310.pyc
+[0.928s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy/state_machine.py to state_machine.cpython-310.pyc
+[0.928s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/autonomy/recovery_manager.py to recovery_manager.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/__init__.py to __init__.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/hardware_status.py to hardware_status.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/packet_parser.py to packet_parser.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/stm32_driver.py to stm32_driver.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/arm_hardware_interface.py to arm_hardware_interface.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/packet_builder.py to packet_builder.cpython-310.pyc
+[0.929s] byte-compiling /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm/hardware/can_interface.py to can_interface.cpython-310.pyc
+[0.929s] running install_data
+[0.930s] copying resource/robot_arm -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/ament_index/resource_index/packages
+[0.930s] copying package.xml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm
+[0.930s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.930s] copying config/joints.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.930s] running install_egg_info
+[0.932s] Copying ../../build/robot_arm/robot_arm.egg-info to /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot_arm-0.1.0-py3.10.egg-info
+[0.933s] running install_scripts
+[0.947s] writing list of installed files to '/home/saicharan/autonomous_arm_ws/build/robot_arm/install.log'
+[0.963s] Invoked command in '/home/saicharan/autonomous_arm_ws/src/robot_arm' returned '0': PYTHONPATH=/home/saicharan/autonomous_arm_ws/build/robot_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robot_arm build --build-base /home/saicharan/autonomous_arm_ws/build/robot_arm/build install --record /home/saicharan/autonomous_arm_ws/build/robot_arm/install.log --install-scripts $base/lib/robot_arm --single-version-externally-managed install_data --force

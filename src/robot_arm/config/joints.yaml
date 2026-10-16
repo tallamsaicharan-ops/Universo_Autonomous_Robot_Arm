@@ -1,6 +1,6 @@
 joints:
   base:
-    type: revolute
+    type: continuous
     unit: radians
     limits_verified: false
     min_position_rad: null
