@@ -1,42 +1,28 @@
+# Encoder configuration (owned by Calibration).
+# The STM32 reads the encoders and sends RAW COUNTS to the laptop.
+# TBD = not known yet. direction / zero_offset_counts are WRITTEN BY arm_calibration - do not hand-edit.
 encoders:
-  base:
-    encoder_type: "hall_effect"
-    model: "OE-28"
-    channels: 2
-    pulses_per_revolution:
-    position_feedback_available: false
-    zero_offset_counts: 0
-    enabled: false
-    joint: base
-    direction: 1
-    zero_offset: 0.0
+  base_joint:
+    model: OE-28                    # 2-channel hall, incremental, open-collector (needs pull-ups)
+    type: incremental               # STM32 sends a signed accumulated count
+    pulses_per_rev: TBD             # OE-28 comes in 3 or 7 PPR - check the part
+    quadrature_multiplier: 4
+    gear_ratio: 585                 # motor turns per base turn (RMCS-5029 1:585); multiply by any extra gearing
+    home_reference: TBD             # switch / hall / aligned_mark - not decided yet
+    direction: TBD                  # +1 or -1 (calibration)
+    zero_offset_counts: TBD         # count at base_joint = 0 (calibration)
     calibrated: false
-    units: radians
-
-  shoulder:
-    encoder_type: "hall_effect"
-    model: "OE-28"
-    channels: 2
-    pulses_per_revolution:
-    position_feedback_available: false
-    zero_offset_counts: 0
-    enabled: false
-    joint: shoulder
-    direction: 1
-    zero_offset: 0.0
+  shoulder_joint:
+    model: AMT212F-V                # CUI absolute, RS-485, accuracy 0.2 deg
+    type: absolute                  # single-turn position, 0 .. 2^bits - 1
+    resolution_bits: TBD            # 12 or 14 - read the label
+    direction: TBD
+    zero_offset_counts: TBD
     calibrated: false
-    units: radians
-
-  elbow:
-    encoder_type: "hall_effect"
-    model: "OE-28"
-    channels: 2
-    pulses_per_revolution:
-    position_feedback_available: false
-    zero_offset_counts: 0
-    enabled: false
-    joint: elbow
-    direction: 1
-    zero_offset: 0.0
+  elbow_joint:
+    model: AMT212F-V
+    type: absolute
+    resolution_bits: TBD
+    direction: TBD
+    zero_offset_counts: TBD
     calibrated: false
-    units: radians
