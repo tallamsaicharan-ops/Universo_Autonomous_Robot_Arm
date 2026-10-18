@@ -1,0 +1,18 @@
+cameras:
+  wrist_camera:
+    model: Orbbec Gemini 2
+    connection: USB
+    enabled: false
+
+    frames:
+      camera_frame: wrist_camera_link
+      optical_frame: wrist_camera_optical_frame
+
+    calibration:
+      calibrated: false
+      intrinsics_verified: false
+      extrinsics_verified: false
+
+    streams:
+      color: true
+      depth: true

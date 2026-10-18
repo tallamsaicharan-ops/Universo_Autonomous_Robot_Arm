@@ -1,0 +1,16 @@
+safety:
+  enabled: true
+
+  motion:
+    require_calibration: true
+    require_verified_joint_limits: true
+    require_collision_check: true
+
+  emergency_stop:
+    enabled: true
+    require_manual_reset: true
+
+  faults:
+    stop_on_communication_loss: true
+    stop_on_limit_violation: true
+

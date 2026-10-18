@@ -1,0 +1,7 @@
+# Start pose for mock hardware. Must be INSIDE the URDF limits
+# (shoulder 0 is outside its limits, so the default of 0 would make MoveIt reject the start state).
+# = "home" (both actuators fully retracted)
+initial_positions:
+  base_joint: 0.0
+  shoulder_joint: -0.06
+  elbow_joint: 0.97
