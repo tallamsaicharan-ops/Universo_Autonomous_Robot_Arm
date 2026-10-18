@@ -1,0 +1,27 @@
+# Reference geometry used by robot_arm/calibration (owned by Calibration).
+# All values come from description/urdf/robot_arm.urdf (CAD) - see description/URDF_CHANGES.md.
+# Angles in degrees, lengths in metres. base_link: x forward, y left, z up.
+reference:
+  # Link elevation (angle above horizontal, as read by an inclinometer) when the joint is at 0
+  upper_arm_elevation_at_zero_deg: 89.99745     # shoulder_joint = 0 -> upper arm vertical
+  forearm_elevation_at_zero_deg: 34.99797       # shoulder = elbow = 0 -> forearm 35 deg up
+  #   shoulder_joint = upper_arm_elevation - 89.99745
+  #   elbow_joint    = shoulder_joint + 34.99797 - forearm_elevation
+
+  # Planar geometry for the tip check (arm plane, base yaw = 0) [x, z]
+  shoulder_axis_xz: [0.0975003, 0.0200000]
+  upper_arm_length_m: 0.539995
+  forearm_length_m: 0.429998
+
+  # Joint angles at the actuator end stops (datasheet pin-to-pin 305 / 505 mm, stroke tolerance +/- 3 mm)
+  shoulder_at_full_retraction_deg: -3.016
+  elbow_at_full_retraction_deg: 56.254
+  elbow_at_full_extension_deg: -10.869
+  # +/- 3 mm stroke tolerance at the end stops corresponds to roughly this many degrees:
+  end_stop_tolerance_deg: {shoulder: 1.05, elbow: 1.40}
+
+procedure:
+  min_poses_per_joint: 3            # inclinometer poses used to fit each zero offset
+  min_angle_spread_deg: 20.0        # poses must span at least this much (needed to find the direction)
+  max_rms_residual_deg: 0.5         # fit is rejected above this
+  inclinometer_accuracy_deg: 0.2    # typical phone / digital inclinometer
