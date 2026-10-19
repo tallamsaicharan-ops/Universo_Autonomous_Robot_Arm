@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: robot-arm
 Version: 0.1.0
-Summary: Starter structure for an autonomous robot arm.
+Summary: Autonomous robot arm: description, kinematics, calibration, autonomy.
 Home-page: UNKNOWN
 Maintainer: TODO Maintainer
 Maintainer-email: TODO@example.com

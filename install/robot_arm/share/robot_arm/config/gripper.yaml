@@ -1,0 +1,16 @@
+gripper:
+  mode: manual
+  enabled: false
+
+  control:
+    autonomous_grasping: false
+    manual_control: true
+
+  verification:
+    enabled: false
+    require_object_detection: false
+    require_position_confirmation: false
+
+  safety:
+    require_arm_stopped_before_manual_grasp: true
+

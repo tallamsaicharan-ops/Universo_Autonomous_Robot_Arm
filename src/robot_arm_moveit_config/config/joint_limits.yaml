@@ -1,0 +1,22 @@
+# Overrides/extends URDF limits for MoveIt time parameterization.
+# Arm velocities = actuator speed 7 mm/s / largest lever arm (real hardware speed).
+# Accelerations are not in the URDF; chosen small because the actuators are slow.
+default_velocity_scaling_factor: 1.0
+default_acceleration_scaling_factor: 1.0
+
+joint_limits:
+  base_joint:
+    has_velocity_limits: true
+    max_velocity: 0.5            # safe test value; motor output max is 3.14 rad/s
+    has_acceleration_limits: true
+    max_acceleration: 0.5
+  shoulder_joint:
+    has_velocity_limits: true
+    max_velocity: 0.0426
+    has_acceleration_limits: true
+    max_acceleration: 0.1
+  elbow_joint:
+    has_velocity_limits: true
+    max_velocity: 0.0355
+    has_acceleration_limits: true
+    max_acceleration: 0.1

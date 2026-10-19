@@ -1,0 +1,33 @@
+# Main robot arm configuration
+arm:
+  name: autonomous_robot_arm
+  dof: 3
+
+  # Main movable joints
+  base_joint: base
+  shoulder_joint: shoulder
+  elbow_joint: elbow
+
+# Link dimensions in metres
+# Fill these after identifying the corresponding CAD components.
+links:
+  upper_arm_length_m: 0.552
+  forearm_length_m: 0.440
+
+# Coordinate frames
+frames:
+  base_frame: base_link
+  shoulder_frame: shoulder_link
+  elbow_frame: elbow_link
+  end_effector_frame: gripper_link
+
+# Units used throughout the kinematics code
+units:
+  length: meters
+  angle: radians
+
+
+
+
+
+

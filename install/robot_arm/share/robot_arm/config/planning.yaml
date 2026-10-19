@@ -1,0 +1,17 @@
+planning:
+  planner: joint_space_linear
+  time_step_s: 0.1
+
+  velocity_limits:
+    base_rad_s: null
+    shoulder_rad_s: null
+    elbow_rad_s: null
+
+  collision_checking:
+    enabled: true
+    safety_margin_m: 0.02
+
+  execution:
+    enabled: false
+    require_calibration: true
+    require_verified_joint_limits: true

@@ -1,4 +1,4 @@
-"""Load configured joint limits into the LimitManager."""
+"""Load joint limits and verification status from joints.yaml."""
 
 import math
 from pathlib import Path
@@ -9,11 +9,11 @@ from .limit_manager import JointLimit, LimitManager
 
 
 def load_joint_limits(config_path):
-    """Load joint limits from joints.yaml.
+    """Return (LimitManager, verification_status).
 
-    Only joints with finite, ordered limits in radians are accepted.
-    Limits marked unverified are loaded for software testing, but this
-    function does not certify that they are safe for physical hardware.
+    Continuous joints have no positional bounds.
+    Bounded joints require finite, ordered limits in radians.
+    This function does not certify physical hardware safety.
     """
     path = Path(config_path)
 
@@ -24,6 +24,7 @@ def load_joint_limits(config_path):
         raise ValueError("Configuration must contain a 'joints' mapping.")
 
     joint_limits = {}
+    verified = {}
 
     for name, data in config["joints"].items():
         if not isinstance(name, str) or not name:
@@ -32,12 +33,39 @@ def load_joint_limits(config_path):
         if not isinstance(data, dict):
             raise ValueError(f"Invalid configuration for joint '{name}'.")
 
+        joint_type = data.get("type")
+        limits_verified = data.get("limits_verified", False)
+
+        if not isinstance(limits_verified, bool):
+            raise ValueError(
+                f"'limits_verified' for joint '{name}' must be boolean."
+            )
+
+        if joint_type == "continuous":
+            if (
+                data.get("min_position_rad") is not None
+                or data.get("max_position_rad") is not None
+            ):
+                raise ValueError(
+                    f"Continuous joint '{name}' must not have position bounds."
+                )
+
+            joint_limits[name] = JointLimit(continuous=True)
+            verified[name] = limits_verified
+            continue
+
+        if joint_type != "revolute":
+            raise ValueError(
+                f"Unsupported joint type '{joint_type}' for joint '{name}'."
+            )
+
         minimum = data.get("min_position_rad")
         maximum = data.get("max_position_rad")
 
-        # Null bounds mean that the joint has no configured numeric limits.
         if minimum is None or maximum is None:
-            continue
+            raise ValueError(
+                f"Bounded joint '{name}' requires numeric radian limits."
+            )
 
         if (
             isinstance(minimum, bool)
@@ -54,15 +82,10 @@ def load_joint_limits(config_path):
             minimum=float(minimum),
             maximum=float(maximum),
         )
+        verified[name] = limits_verified
 
     if not joint_limits:
-        raise ValueError("No numeric joint limits were configured.")
+        raise ValueError("No joints were configured.")
 
-    manager = LimitManager(joint_limits)
+    return LimitManager(joint_limits), verified
 
-    verified = {
-        name: bool(config["joints"][name].get("limits_verified", False))
-        for name in joint_limits
-    }
-
-    return manager, verified
