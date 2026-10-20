@@ -1,37 +1,26 @@
-"""Kinematics utilities for the autonomous robot arm."""
+"""Kinematics utilities for the robotic arm."""
 
-from .fk import forward_kinematics, get_end_effector_position
+from .fk import (
+    fk_position,
+    fk_planar,
+    fk_pose,
+    fk_joint_positions,
+    validate_joint_angles,
+    within_joint_limits,
+)
+
 from .ik import inverse_kinematics
-from .jacobian import calculate_jacobian
-from .transforms import (
-    translation_matrix,
-    rotation_matrix_x,
-    rotation_matrix_y,
-    rotation_matrix_z,
-    transform_point,
-    compose_transforms,
-    inverse_transform,
-)
-from .actuator_conversion import (
-    ActuatorGeometry,
-    calculate_actuator_length,
-    calculate_actuator_lengths,
-)
+
+from .jacobian import position_jacobian
+
 
 __all__ = [
-    "forward_kinematics",
-    "get_end_effector_position",
+    "fk_position",
+    "fk_planar",
+    "fk_pose",
+    "fk_joint_positions",
+    "validate_joint_angles",
+    "within_joint_limits",
     "inverse_kinematics",
-    "calculate_jacobian",
-    "translation_matrix",
-    "rotation_matrix_x",
-    "rotation_matrix_y",
-    "rotation_matrix_z",
-    "transform_point",
-    "compose_transforms",
-    "inverse_transform",
-    "ActuatorGeometry",
-    "calculate_actuator_length",
-    "calculate_actuator_lengths",
+    "position_jacobian",
 ]
-
