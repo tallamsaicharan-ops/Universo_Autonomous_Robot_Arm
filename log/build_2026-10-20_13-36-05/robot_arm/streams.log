@@ -1,0 +1,51 @@
+[0.676s] Invoking command in '/home/saicharan/autonomous_arm_ws/build/robot_arm': PYTHONPATH=/home/saicharan/autonomous_arm_ws/build/robot_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/saicharan/autonomous_arm_ws/build/robot_arm/build --no-deps symlink_data
+[0.848s] running develop
+[0.940s] running egg_info
+[0.940s] creating robot_arm.egg-info
+[0.940s] writing robot_arm.egg-info/PKG-INFO
+[0.940s] writing dependency_links to robot_arm.egg-info/dependency_links.txt
+[0.940s] writing entry points to robot_arm.egg-info/entry_points.txt
+[0.940s] writing requirements to robot_arm.egg-info/requires.txt
+[0.941s] writing top-level names to robot_arm.egg-info/top_level.txt
+[0.941s] writing manifest file 'robot_arm.egg-info/SOURCES.txt'
+[0.943s] reading manifest file 'robot_arm.egg-info/SOURCES.txt'
+[0.943s] writing manifest file 'robot_arm.egg-info/SOURCES.txt'
+[0.944s] running build_ext
+[0.945s] Creating /home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages/robot-arm.egg-link (link to .)
+[0.945s] 
+[0.945s] Installed /home/saicharan/autonomous_arm_ws/build/robot_arm
+[0.945s] running symlink_data
+[0.945s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/ament_index
+[0.945s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/ament_index/resource_index
+[0.945s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/ament_index/resource_index/packages
+[0.945s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/resource/robot_arm -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/ament_index/resource_index/packages
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/package.xml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm
+[0.946s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/gripper.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/cameras.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/planning.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/can.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/joints.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/calibration.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/arm.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/safety.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/actuator.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/config/encoders.yaml -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/config
+[0.946s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/launch
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/launch/bringup.launch.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/launch
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/launch/simulation.launch.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/launch
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/launch/display.launch.py -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/launch
+[0.946s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description
+[0.946s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/urdf
+[0.946s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/urdf/robot_arm.urdf -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/urdf
+[0.946s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/_3030_extrusion_robotic_arm_L2__Boss_Extrude1.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/ra_1__Cut_Extrude1.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/_3030_extrusion_robotic_arm_L1__Boss_Extrude1.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/ra_4__Cut_Extrude1_1.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/ra_5__Boss_Extrude4.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/ra_4__Cut_Extrude1.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/meshes/ra_3__Boss_Extrude1.stl -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/meshes
+[0.947s] creating /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/rviz
+[0.947s] symbolically linking /home/saicharan/autonomous_arm_ws/build/robot_arm/description/rviz/robot_arm.rviz -> /home/saicharan/autonomous_arm_ws/install/robot_arm/share/robot_arm/description/rviz
+[0.966s] Invoked command in '/home/saicharan/autonomous_arm_ws/build/robot_arm' returned '0': PYTHONPATH=/home/saicharan/autonomous_arm_ws/build/robot_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/saicharan/autonomous_arm_ws/install/robot_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/saicharan/autonomous_arm_ws/build/robot_arm/build --no-deps symlink_data

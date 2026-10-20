@@ -1,13 +1,1 @@
-can:
-  interface: can0
-  enabled: false
-  bitrate: null
-
-  protocol:
-    status: to_be_defined
-    packet_format_verified: false
-    command_ids_verified: false
-
-  safety:
-    require_status_feedback: true
-    require_fault_check: true
+/home/saicharan/autonomous_arm_ws/build/robot_arm/config/can.yaml

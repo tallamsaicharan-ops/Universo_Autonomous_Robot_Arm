@@ -1,11 +1,1 @@
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
-    <xacro:arg name="initial_positions_file" default="initial_positions.yaml"/>
-
-    <!-- Robot description from the robot_arm package (geometry unchanged from CAD) -->
-    <xacro:include filename="$(find robot_arm)/description/urdf/robot_arm.urdf"/>
-
-    <!-- ros2_control (mock hardware for MoveIt testing) -->
-    <xacro:include filename="robot_arm.ros2_control.xacro"/>
-    <xacro:robot_arm_ros2_control name="MockSystem" initial_positions_file="$(arg initial_positions_file)"/>
-</robot>
+/home/saicharan/autonomous_arm_ws/src/robot_arm_moveit_config/config/robot_arm.urdf.xacro

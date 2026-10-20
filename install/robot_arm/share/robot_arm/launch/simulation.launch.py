@@ -1,1 +1,1 @@
-"""TODO: launch robot_state_publisher, RViz, and the chosen simulator."""
+/home/saicharan/autonomous_arm_ws/build/robot_arm/launch/simulation.launch.py

@@ -1,6 +1,1 @@
-# Only used by the Pilz planner (not loaded by default here)
-cartesian_limits:
-  max_trans_vel: 0.05
-  max_trans_acc: 0.1
-  max_trans_dec: -0.1
-  max_rot_vel: 0.2
+/home/saicharan/autonomous_arm_ws/src/robot_arm_moveit_config/config/pilz_cartesian_limits.yaml
