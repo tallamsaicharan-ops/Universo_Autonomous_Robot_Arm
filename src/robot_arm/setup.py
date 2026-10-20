@@ -25,5 +25,7 @@ setup(
     description='Autonomous robot arm: description, kinematics, calibration, autonomy.',
     license='TODO',
     tests_require=['pytest'],
-    entry_points={'console_scripts': []},
+    entry_points={'console_scripts': [
+        'arm_calibration = robot_arm.calibration.arm_calibration:main',
+    ]},
 )

@@ -228,7 +228,7 @@ def simulate(seed: int = 3, inclinometer_noise_deg: float = 0.1, save: bool = Fa
         'base_joint': {'type': 'incremental', 'pulses_per_rev': 7, 'quadrature_multiplier': 4, 'gear_ratio': 585}}}
     p = ref['procedure']
     results = []
-    for joint, poses in (('shoulder_joint', [(-5, 40), (-25, 20), (-45, 5), (-70, -10)]),
+    for joint, poses in (('shoulder_joint', [(-5, 40), (-25, 20), (-45, 5), (-70, -5)]),
                          ('elbow_joint', [(-20, -5), (-20, 15), (-20, 35), (-20, 52)])):
         model = model_from_entry(joint, enc_cfg['encoders'][joint])
         samples = []
