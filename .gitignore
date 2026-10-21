@@ -1,0 +1,14 @@
+# colcon build output
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Editor / backup files
+*.bak
+*.swp
+*~

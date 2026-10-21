@@ -1,1 +1,0 @@
-/home/saicharan/autonomous_arm_ws/src/robot_arm_moveit_config/launch/moveit_rviz.launch.py
