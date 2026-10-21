@@ -1,4 +1,18 @@
-"""Position Jacobian for the 3-DOF robotic arm."""
+"""
+Position Jacobian for the 3-DOF robotic arm.
+
+The Jacobian maps joint angular velocities to end-effector
+linear velocity.
+
+Joint order:
+    q_base, q_shoulder, q_elbow
+
+Rows:
+    X, Y, Z
+
+Units:
+    metres per radian
+"""
 
 import numpy as np
 
@@ -39,16 +53,25 @@ def position_jacobian(
 
         Rows:    [x, y, z]
         Columns: [base, shoulder, elbow]
+
+    Raises
+    ------
+    ValueError
+        If the joint angles are not finite or violate the configured
+        joint limits when limit checking is enabled.
     """
 
+    # Convert joint angles to a NumPy array.
     angles = np.array(
         [q_base, q_shoulder, q_elbow],
         dtype=float,
     )
 
+    # Validate input angles.
     if not np.all(np.isfinite(angles)):
         raise ValueError("Joint angles must be finite.")
 
+    # Validate shoulder and elbow limits.
     if check_limits:
         validate_joint_angles(
             q_base,
@@ -56,38 +79,52 @@ def position_jacobian(
             q_elbow,
         )
 
+    # Calculate absolute link elevation angles.
     alpha = upper_arm_elevation(q_shoulder)
     beta = forearm_elevation(q_shoulder, q_elbow)
 
-    # Full radial distance, including the base forward offset.
+    # Radial distance from the base rotation axis to the end effector.
+    # Includes the shoulder's forward offset.
     radial = (
         BASE_FORWARD_OFFSET_M
         + UPPER_ARM_LENGTH_M * np.cos(alpha)
         + FOREARM_LENGTH_M * np.cos(beta)
     )
 
-    # Radial derivative with respect to shoulder angle.
+    # Derivative of radial distance with respect to shoulder angle.
     dr_dshoulder = (
         -UPPER_ARM_LENGTH_M * np.sin(alpha)
         - FOREARM_LENGTH_M * np.sin(beta)
     )
 
-    # Radial derivative with respect to elbow angle.
-    dr_delbow = FOREARM_LENGTH_M * np.sin(beta)
+    # Derivative of radial distance with respect to elbow angle.
+    dr_delbow = (
+        FOREARM_LENGTH_M * np.sin(beta)
+    )
 
-    # Vertical derivatives.
+    # Derivative of vertical position with respect to shoulder angle.
     dz_dshoulder = (
         UPPER_ARM_LENGTH_M * np.cos(alpha)
         + FOREARM_LENGTH_M * np.cos(beta)
     )
 
-    dz_delbow = -FOREARM_LENGTH_M * np.cos(beta)
+    # Derivative of vertical position with respect to elbow angle.
+    dz_delbow = (
+        -FOREARM_LENGTH_M * np.cos(beta)
+    )
 
+    # Base rotation trigonometric terms.
     c = np.cos(q_base)
     s = np.sin(q_base)
 
-    # Rows: x, y, z
+    # Construct the translational Jacobian.
+    #
+    # Rows:    X, Y, Z
     # Columns: base, shoulder, elbow
+    #
+    # J maps joint velocities to end-effector linear velocity:
+    #     velocity_xyz = J @ joint_velocities
+
     J = np.array(
         [
             [
@@ -113,23 +150,30 @@ def position_jacobian(
 
 
 if __name__ == "__main__":
-    # Example configuration.
+
+    # Example joint configuration in degrees.
     angles_deg = [30.0, -20.0, 15.0]
 
+    # Convert degrees to radians.
     q_base, q_shoulder, q_elbow = np.deg2rad(
         angles_deg
     )
 
+    # Calculate the Jacobian.
     J = position_jacobian(
         q_base,
         q_shoulder,
         q_elbow,
     )
 
+    # Display results.
     print("3-DOF ROBOTIC ARM - POSITION JACOBIAN")
     print("=" * 45)
+
     print("Joint angles (degrees):", angles_deg)
+
     print("\nJacobian (m/rad):")
     print(np.round(J, 6))
-    print("\nRows: x, y, z")
+
+    print("\nRows: X, Y, Z")
     print("Columns: base, shoulder, elbow")
