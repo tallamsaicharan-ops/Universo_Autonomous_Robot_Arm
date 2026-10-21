@@ -11,7 +11,7 @@
    3. The CAD root joint (fixed_node_to_root_joint, 0.18 / 0.49 deg alignment noise) is replaced by an
       exact rotation. Link "root" is removed.
    4. revolute_1 -> shoulder_joint, revolute_2 -> elbow_joint (same origins and axes as the CAD).
-   5. Joint limits now come from the linear actuators (pin-to-pin 305 mm retracted .. 505 mm extended, datasheet).
+   5. Joint limits now come from the linear actuators (pin-to-pin 300 mm retracted .. 500 mm extended, team value).
       Datasheet stroke tolerance is +/-3 mm.
       Re-compute if the actuators or mount points change.
    6. <collision> added to every link (same mesh as visual) - required by MoveIt collision checking.
@@ -369,27 +369,27 @@
 
   <!-- ===================== Arm joints ===================== -->
   <!-- shoulder_joint (was "revolute_1" in the Onshape export; origin and axis unchanged) -->
-  <!-- upper = -3.016 deg : actuator fully retracted (305 mm pin-to-pin). 0 deg (vertical) needs 296.2 mm = impossible. -->
-  <!-- lower = -90.0 deg : CAD limit (arm horizontal, actuator 450.7 mm). Actuator can never reach 505 mm here: -->
+  <!-- upper = -1.285 deg : actuator fully retracted (300 mm pin-to-pin). 0 deg (vertical) needs 296.2 mm = impossible. -->
+  <!-- lower = -90.0 deg : CAD limit (arm horizontal, actuator 450.7 mm). Actuator can never reach 500 mm here: -->
   <!--         toggle point at 452.1 mm / -98.99 deg. Near -90 deg the lever arm is only 17.5 mm (3.3 deg per mm). -->
-  <!-- velocity = 7 mm/s / 164.4 mm (largest lever arm) ; effort = 1000 N x 164.4 mm. -->
+  <!-- velocity = 7 mm/s / 166.6 mm (largest lever arm) ; effort = 1000 N x 166.6 mm. -->
   <joint name="shoulder_joint" type="revolute">
     <origin xyz="5.20417e-17 -0.07 1.11022e-16" rpy="0 -1.5708 -1.5708"/>
     <parent link="ra_3__boss_extrude1"/>
     <child link="ra_1__cut_extrude1_4"/>
     <axis xyz="-0 -0 1"/>
-    <limit lower="-1.570796" upper="-0.052638" effort="164.4" velocity="0.0426"/>
+    <limit lower="-1.570796" upper="-0.022426" effort="166.6" velocity="0.0420"/>
   </joint>
 
   <!-- elbow_joint (was "revolute_2" in the Onshape export; origin and axis unchanged) -->
-  <!-- lower = -10.869 deg : actuator fully extended (505 mm).  upper = 56.254 deg : fully retracted (305 mm). -->
+  <!-- lower = -8.574 deg : actuator fully extended (500 mm).  upper = 57.708 deg : fully retracted (300 mm). -->
   <!-- velocity = 7 mm/s / 197.4 mm (largest lever arm) ; effort = 1000 N x 197.4 mm. -->
   <joint name="elbow_joint" type="revolute">
     <origin xyz="-1.44329e-15 -0.05 6.93889e-17" rpy="0 1.5708 -1.5708"/>
     <parent link="ra_3__boss_extrude1_1"/>
     <child link="ra_1__cut_extrude1"/>
     <axis xyz="0 0 -1"/>
-    <limit lower="-0.189703" upper="0.981815" effort="197.4" velocity="0.0355"/>
+    <limit lower="-0.149650" upper="1.007196" effort="197.4" velocity="0.0355"/>
   </joint>
 
   <!-- ===================== NEW: IK target frame ===================== -->

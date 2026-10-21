@@ -18,7 +18,8 @@ Removed: the ROS 1 launch file (`robotic_arm_cad.launch`) → replaced by `launc
 ## Confirmed inputs
 - Base yaw axis passes through the centre of the base block (`ra_5`): 5.0 mm behind the part origin,
   97.5 mm behind the shoulder axis. Slip ring fitted → `base_joint` is truly continuous.
-- Actuator pin-to-pin (datasheet): 305 mm retracted (105 + S), 505 mm extended (105 + 2S), S = 200 ± 3 mm.
+- Actuator pin-to-pin (team value): 300 mm retracted, 500 mm extended, stroke 200 ± 3 mm.
+  (Datasheet formula would give 305 / 505; the team chose 300 / 500.)
 
 ## Geometry (from URDF, mm)
 - Shoulder axis → elbow axis: 540.0. Elbow axis → arm_tip: 430.0.
@@ -33,10 +34,10 @@ Removed: the ROS 1 launch file (`robotic_arm_cad.launch`) → replaced by `launc
 ## Limits (rad / deg) and where they come from
 | Joint | Lower | Upper |
 |-------|-------|-------|
-| shoulder_joint | −1.570796 / −90.0° (CAD limit; actuator 450.7 mm) | −0.052638 / −3.016° (actuator 305 mm) |
-| elbow_joint | −0.189703 / −10.869° (actuator 505 mm) | 0.981815 / 56.254° (actuator 305 mm) |
+| shoulder_joint | −1.570796 / −90.0° (CAD limit; actuator 450.7 mm) | −0.022426 / −1.285° (actuator 300 mm) |
+| elbow_joint | −0.149650 / −8.574° (actuator 500 mm) | 1.007196 / 57.708° (actuator 300 mm) |
 
 
 Shoulder warning: max possible pin-to-pin is 452.1 mm (toggle at −98.99°), so the actuator's
-built-in extend limit switch (505 mm) can NEVER trigger on the shoulder. Lever arm drops from
-164 mm (vertical) to 17.5 mm (horizontal) → 0.35°/mm near vertical, 3.3°/mm near horizontal.
+built-in extend limit switch (500 mm) can NEVER trigger on the shoulder. Lever arm drops from
+167 mm (vertical) to 17.5 mm (horizontal) → 0.35°/mm near vertical, 3.3°/mm near horizontal.
