@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+  Simulation wrapper around robot_arm.urdf (the URDF itself is not changed).
+  Adds: a world anchor + pedestal (mount_height), ros2_control for the chosen simulator,
+  and the Gazebo ros2_control plugin.
+
+  sim:=mock      RViz only (mock_components/GenericSystem)
+  sim:=gazebo    Gazebo Classic 11      (gazebo_ros2_control)
+  sim:=ignition  Gazebo Ignition Fortress (ign_ros2_control)
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
+
+  <xacro:arg name="sim" default="mock"/>
+  <xacro:arg name="mount_height" default="0.4"/>
+  <xacro:arg name="controllers_file" default="$(find robot_arm)/config/sim_controllers.yaml"/>
+  <xacro:arg name="initial_base" default="0.0"/>
+  <xacro:arg name="initial_shoulder" default="-0.06"/>
+  <xacro:arg name="initial_elbow" default="0.97"/>
+
+  <xacro:property name="sim" value="$(arg sim)"/>
+  <xacro:property name="h" value="$(arg mount_height)"/>
+
+  <xacro:include filename="$(find robot_arm)/description/urdf/robot_arm.urdf"/>
+
+  <!-- World anchor and pedestal (stands in for the rover deck). Its top is base_link. -->
+  <link name="world"/>
+  <joint name="world_to_mount" type="fixed">
+    <parent link="world"/>
+    <child link="sim_mount"/>
+    <origin xyz="0 0 ${h}" rpy="0 0 0"/>
+  </joint>
+  <link name="sim_mount">
+    <inertial>
+      <origin xyz="0 0 ${-h/2}" rpy="0 0 0"/>
+      <mass value="5.0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+    <xacro:if value="${h > 0.001}">
+      <visual>
+        <origin xyz="0 0 ${-h/2}" rpy="0 0 0"/>
+        <geometry><box size="0.30 0.20 ${h}"/></geometry>
+        <material name="pedestal_grey"><color rgba="0.35 0.37 0.40 1"/></material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${-h/2}" rpy="0 0 0"/>
+        <geometry><box size="0.30 0.20 ${h}"/></geometry>
+      </collision>
+    </xacro:if>
+  </link>
+  <joint name="mount_to_base" type="fixed">
+    <parent link="sim_mount"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ros2_control: same joints and interfaces in every simulator -->
+  <ros2_control name="RobotArmSim" type="system">
+    <hardware>
+      <xacro:if value="${sim == 'mock'}">
+        <plugin>mock_components/GenericSystem</plugin>
+      </xacro:if>
+      <xacro:if value="${sim == 'gazebo'}">
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </xacro:if>
+      <xacro:if value="${sim == 'ignition'}">
+        <plugin>ign_ros2_control/IgnitionSystem</plugin>
+      </xacro:if>
+    </hardware>
+    <joint name="base_joint">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">$(arg initial_base)</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="shoulder_joint">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">$(arg initial_shoulder)</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="elbow_joint">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">$(arg initial_elbow)</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <xacro:if value="${sim == 'gazebo'}">
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(arg controllers_file)</parameters>
+      </plugin>
+    </gazebo>
+  </xacro:if>
+
+  <xacro:if value="${sim == 'ignition'}">
+    <gazebo>
+      <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+        <parameters>$(arg controllers_file)</parameters>
+      </plugin>
+    </gazebo>
+  </xacro:if>
+
+</robot>

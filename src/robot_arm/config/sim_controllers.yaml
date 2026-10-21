@@ -1,0 +1,23 @@
+# ros2_control controllers for Gazebo Classic / Gazebo Ignition (loaded by the Gazebo plugin).
+# Same controller names as robot_arm_moveit_config, so MoveIt and the joystick work in every simulator.
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - base_joint
+      - shoulder_joint
+      - elbow_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

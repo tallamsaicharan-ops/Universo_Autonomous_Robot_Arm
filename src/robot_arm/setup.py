@@ -14,9 +14,11 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        (os.path.join('share', package_name, 'description', 'urdf'), glob('description/urdf/*.urdf')),
+        (os.path.join('share', package_name, 'description', 'urdf'),
+         glob('description/urdf/*.urdf') + glob('description/urdf/*.xacro')),
         (os.path.join('share', package_name, 'description', 'meshes'), glob('description/meshes/*.stl')),
         (os.path.join('share', package_name, 'description', 'rviz'), glob('description/rviz/*.rviz')),
+        (os.path.join('share', package_name, 'worlds'), glob('worlds/*.world') + glob('worlds/*.sdf')),
     ],
     install_requires=['setuptools', 'PyYAML'],
     zip_safe=True,
@@ -27,5 +29,6 @@ setup(
     tests_require=['pytest'],
     entry_points={'console_scripts': [
         'arm_calibration = robot_arm.calibration.arm_calibration:main',
+        'joy_teleop = robot_arm.teleop.joy_teleop:main',
     ]},
 )

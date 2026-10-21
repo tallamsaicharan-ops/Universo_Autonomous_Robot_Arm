@@ -1,0 +1,31 @@
+# Game controller -> arm joints. Used by launch/teleop.launch.py.
+# Check your controller's numbering with:  ros2 topic echo /joy   (move one stick / press one button)
+# Default numbers fit Xbox and PlayStation pads on Linux.
+
+joy_node:
+  ros__parameters:
+    device_id: 0              # /dev/input/js0
+    deadzone: 0.05
+    autorepeat_rate: 20.0     # keep sending /joy while a stick is held
+
+joy_teleop:
+  ros__parameters:
+    controller_topic: /arm_controller/joint_trajectory
+    rate_hz: 20.0
+
+    enable_button: 4          # dead-man: hold to move (Xbox LB / PS L1)
+    home_button: 0            # with enable held: go to home (Xbox A / PS Cross)
+
+    axis_base: 0              # left stick left/right   -> base (left = counter-clockwise)
+    axis_shoulder: 1          # left stick up/down      -> shoulder (up = raise upper arm)
+    axis_elbow: 4             # right stick up/down     -> elbow (up = raise forearm)
+    scale_base: 1.0           # flip a sign here if a joint moves the wrong way
+    scale_shoulder: 1.0
+    scale_elbow: -1.0
+
+    deadzone: 0.1
+    speed_scale: 1.0          # 1.0 = real actuator speed (shoulder 0.042, elbow 0.0355 rad/s)
+    base_max_velocity: 0.5    # rad/s
+    limit_margin_rad: 0.01    # stay this far inside the URDF limits
+
+    home_position: [0.0, -0.06, 0.97]   # base, shoulder, elbow (rad) = both actuators near retracted
